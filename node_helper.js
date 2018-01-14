@@ -17,15 +17,22 @@ module.exports = NodeHelper.create({
   },
 
   activateMonitor: function () {
+
+    var date = new Date();
+
     if (this.config.relayPIN != false) {
-      this.relay.writeSync(this.config.relayOnState);
+      if (date.getHours() >= this.config.minimumHourWakeUp && date.getHours() <= this.config.maximumHourWakeUp) {
+        this.relay.writeSync(this.config.relayOnState);  
+      }
     }
     else if (this.config.relayPIN == false){
-      // Check if hdmi output is already on
-      exec("/opt/vc/bin/tvservice -s").stdout.on('data', function(data) {
-        if (data.indexOf("0x120002") !== -1)
-          exec("/opt/vc/bin/tvservice --preferred && chvt 6 && chvt 7", null);
-      });
+      if (date.getHours() >= this.config.minimumHourWakeUp && date.getHours() <= this.config.maximumHourWakeUp) {
+        // Check if hdmi output is already on
+        exec("/opt/vc/bin/tvservice -s").stdout.on('data', function(data) {
+          if (data.indexOf("0x120002") !== -1)
+            exec("/opt/vc/bin/tvservice --preferred && chvt 6 && chvt 7", null);
+        });
+      }
     }
   },
 
