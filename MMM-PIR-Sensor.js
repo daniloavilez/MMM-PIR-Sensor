@@ -19,7 +19,7 @@ Module.register('MMM-PIR-Sensor',{
 		powerSaving: true,
 		powerSavingDelay: 0,
 		minimumHourWakeUp: 6,
-		maximumHourWakeUp: 0,
+		maximumHourWakeUp: 23,
 	},
 
 	// Override socket notification handler.

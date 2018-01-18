@@ -80,6 +80,20 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>1</code>
 			</td>
 		</tr>
+		<tr>
+			<td><code>minimumHourWakeUp</code></td>
+			<td>Minimum hour to wake up TV.<br>
+				<br><b>Possible values:</b> <code>0 - 23</code>
+				<br><b>Default value:</b> <code>6</code>
+			</td>
+		</tr>
+		<tr>
+			<td><code>maximumHourWakeUp</code></td>
+			<td>Maximum hour to wake up TV.<br>
+				<br><b>Possible values:</b> <code>0 - 23</code>
+				<br><b>Default value:</b> <code>23</code>
+			</td>
+		</tr>
 	</tbody>
 </table>
 
